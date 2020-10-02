@@ -1,3 +1,17 @@
-import { MikroORM } from "@mikro-orm/core"
+import { MikroORM } from '@mikro-orm/core'
 
-const orm = MikroORM.init()
+import { Post } from './entities/Post'
+import mikroConfig from './mikro-orm.config'
+
+const main = async () => {
+	const orm = await MikroORM.init(mikroConfig)
+	await orm.getMigrator().up()
+
+	// const post = orm.em.create(Post, { title: 'Henlo Frens' })
+	// await orm.em.persistAndFlush(post)
+
+	// const posts = await orm.em.find(Post, {})
+	// console.log(posts)
+}
+
+main().catch((err) => console.error(err))
