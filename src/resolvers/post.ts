@@ -2,7 +2,6 @@ import { Arg, Ctx, Int, Mutation, Query, Resolver } from 'type-graphql'
 
 import { MyContext } from '../types'
 import { Post } from '../entities/Post'
-import { createSecureContext } from 'tls'
 
 @Resolver()
 export class PostResolver {
